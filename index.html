@@ -1,0 +1,764 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aras Mustafa | Medical Portfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        /* Variables */
+        :root {
+            --primary: #1e7fb0;
+            --secondary: #2bc5d4;
+            --accent: #0d5c75;
+            --light: #e6f7fd;
+            --dark: #12283a;
+            --text: #333;
+            --background: #f8fdff;
+            --card-bg: #ffffff;
+            --gradient: linear-gradient(135deg, var(--primary), var(--secondary));
+        }
+
+        /* Reset and Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            text-align: justify;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--background);
+            color: var(--text);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            color: var(--dark);
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        a {
+            text-decoration: none;
+            color: var(--primary);
+            transition: all 0.3s ease;
+        }
+
+        a:hover {
+            color: var(--secondary);
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        /* Container */
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+
+        /* Header */
+        header {
+            background: var(--gradient);
+            color: white;
+            position: relative;
+            overflow: hidden;
+            padding: 120px 0 80px;
+            clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+        }
+
+        header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100'%3E%3Cpath fill='%23ffffff' fill-opacity='0.1' d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z'%3E%3C/path%3E%3C/svg%3E");
+            opacity: 0.5;
+        }
+
+        .profile-container {
+            display: flex;
+            align-items: center;
+            position: relative;
+            z-index: 2;
+        }
+
+        .profile-image {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 5px solid white;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            margin-right: 40px;
+            background-color: #e0f7fa;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-image: url('./Images/profile1.jpg');
+
+            background-size: cover;        /* Cover the whole div */
+            background-position: center;   /* Center the image */
+            background-repeat: no-repeat;  /* Don’t repeat the image */
+
+        }
+
+        .profile-image i {
+            font-size: 80px;
+            color: var(--primary);
+        }
+
+        .profile-content h1 {
+            font-size: 3rem;
+            color: white;
+            margin-bottom: 10px;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .profile-content h3 {
+            font-size: 1.5rem;
+            color: rgba(255, 255, 255, 0.9);
+            font-weight: 400;
+            margin-bottom: 15px;
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 15px;
+        }
+
+        .social-icons a {
+            color: white;
+            font-size: 1.5rem;
+            transition: transform 0.3s ease;
+        }
+
+        .social-icons a:hover {
+            transform: translateY(-3px);
+        }
+
+        /* Medical Icons */
+        .medical-icons {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            z-index: 1;
+            opacity: 0.1;
+        }
+
+        .medical-icon {
+            position: absolute;
+            font-size: 2rem;
+            color: white;
+        }
+
+        /* About Section */
+        .about-section {
+            padding: 80px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 40px;
+            position: relative;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            display: inline-block;
+            padding-bottom: 10px;
+            position: relative;
+        }
+
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: var(--gradient);
+            border-radius: 2px;
+        }
+
+        .bio-content {
+            background: var(--card-bg);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            margin-bottom: 30px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .bio-content::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 5px;
+            height: 100%;
+            background: var(--gradient);
+        }
+
+        /* Participations Section */
+        .participations-section {
+            padding: 80px 0;
+            background-color: var(--light);
+        }
+
+        .participation-cards {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 40px;
+        }
+
+        .participation-card {
+            background: var(--card-bg);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .participation-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .participation-slider {
+            position: relative;
+            height: 300px;
+            overflow: hidden;
+        }
+
+        .slider-container {
+            display: flex;
+            transition: transform 0.5s ease;
+            height: 100%;
+        }
+
+        .slide {
+            min-width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: var(--light);
+        }
+
+        .slide img, .slide video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .slider-controls {
+            position: absolute;
+            bottom: 15px;
+            left: 0;
+            right: 0;
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            z-index: 5;
+        }
+
+        .slider-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.5);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .slider-dot.active {
+            background-color: white;
+            transform: scale(1.2);
+        }
+
+        .slider-arrow {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.8);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            z-index: 5;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .slider-arrow:hover {
+            background-color: white;
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.15);
+        }
+
+        .slider-arrow.prev {
+            left: 15px;
+        }
+
+        .slider-arrow.next {
+            right: 15px;
+        }
+
+        .participation-content {
+            padding: 25px;
+            font-size: 1.1rem;
+            font-weight: 500;
+        }
+
+        .participation-content h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: var(--primary);
+        }
+
+        .participation-date {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.9rem;
+            color: #666;
+            margin-bottom: 15px;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--dark);
+            color: white;
+            padding: 30px 0;
+        }
+        .footer-content p {
+            text-align: center;
+        }
+        .footer-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .footer-content p {
+            margin-bottom: 15px;
+        }
+
+        .footer-social {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 15px;
+        }
+
+        .footer-social a {
+            color: white;
+            font-size: 1.3rem;
+            transition: all 0.3s ease;
+        }
+
+        .footer-social a:hover {
+            color: var(--secondary);
+            transform: translateY(-3px);
+        }
+
+        .copyright {
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        /* Animations */
+        @keyframes pulseGlow {
+            0% {
+                box-shadow: 0 0 0 0 rgba(43, 197, 212, 0.7);
+            }
+            70% {
+                box-shadow: 0 0 0 10px rgba(43, 197, 212, 0);
+            }
+            100% {
+                box-shadow: 0 0 0 0 rgba(43, 197, 212, 0);
+            }
+        }
+
+        /* Medical theme elements */
+        .medical-symbol {
+            position: relative;
+            display: inline-block;
+            margin-right: 10px;
+            color: var(--primary);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .profile-container {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .profile-image {
+                margin-right: 0;
+                margin-bottom: 30px;
+            }
+
+            .profile-content h1 {
+                font-size: 2.5rem;
+            }
+
+            .social-icons {
+                justify-content: center;
+            }
+        }
+
+        @media (max-width: 768px) {
+            header {
+                padding: 80px 0 60px;
+            }
+
+            .profile-image {
+                /* width: 200px;
+                height: 200px; */
+            }
+
+            .profile-content h1 {
+                font-size: 2rem;
+            }
+
+            .profile-content h3 {
+                font-size: 1.2rem;
+            }
+
+            .section-title h2 {
+                font-size: 2rem;
+            }
+
+            .participation-slider {
+                height: 250px;
+            }
+
+            .slider-arrow {
+                width: 35px;
+                height: 35px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            *{
+                text-align: left;
+            }
+            .profile-image {
+                /* width: 120px;
+                height: 120px; */
+            }
+
+            .profile-content h1 {
+                font-size: 1.8rem;
+            }
+
+            .section-title h2 {
+                font-size: 1.8rem;
+            }
+
+            .participation-slider {
+                height: 200px;
+            }
+
+            .participation-content h3 {
+                font-size: 1.3rem;
+            }
+
+            .slider-arrow {
+                width: 30px;
+                height: 30px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <div class="container">
+            <div class="profile-container">
+                <div class="profile-image">
+                    <!-- <img src="./Images/profile.jpg" alt=""> -->
+                </div>
+                <div class="profile-content">
+                    <h1>Aras Mustafa</h1>
+                    <h3>Medical Student & Public Health Advocate</h3>
+                    <div class="social-icons">
+                        <a target="_blank" href="https://www.linkedin.com/in/aras-hussein-b8002a287?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app"><i class="fab fa-linkedin"></i></a>
+                        <a target="_blank" href="https://www.facebook.com/share/18vDNRhC4i/?mibextid=wwXIfr"><i class="fab fa-facebook"></i></a>
+                        <a target="_blank" href="https://x.com/amustafa39245?s=21&t=qXkHrp-aO3nlLsW-5wM-Zw"><i class="fab fa-twitter"></i></a>
+                        <a target="_blank" href="https://www.instagram.com/aras_mustafaa?igsh=MXc0Ynk1NjZvbGp2bg%3D%3D&utm_source=qr"><i class="fab fa-instagram"></i></a>
+                        <a target="_blank" href="mailto:arasmstafa2000@gmail.com"><i class="fas fa-envelope"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="medical-icons">
+            <i class="fas fa-stethoscope medical-icon" style="top: 20%; left: 10%;"></i>
+            <i class="fas fa-heartbeat medical-icon" style="top: 40%; left: 80%;"></i>
+            <i class="fas fa-prescription medical-icon" style="top: 70%; left: 30%;"></i>
+            <i class="fas fa-briefcase-medical medical-icon" style="top: 15%; left: 60%;"></i>
+            <i class="fas fa-pills medical-icon" style="top: 60%; left: 85%;"></i>
+            <i class="fas fa-syringe medical-icon" style="top: 80%; left: 15%;"></i>
+        </div>
+    </header>
+
+    <!-- About Section -->
+    <section class="about-section">
+        <div class="container">
+            <div class="section-title">
+                <h2><i class="fas fa-user-md medical-symbol"></i>About Me</h2>
+            </div>
+            <div class="bio-content">
+                <p>Aras Mustafa Hussein, a 24-year-old medical student in my 5th stage at Koya University, College of Medicine. Alongside my medical journey, I’ve actively led and participated in various public health projects under IFMSA Kurdistan-Koya,These experiences have deepened my belief that health is a human right and should be accessible to all.
+                    Beyond medicine, I’m also a passionate human rights activist. I advocate for equality, access to education, and the empowerment of marginalized voices in my community. I believe that true health goes beyond the absence of disease—it includes dignity, justice, and opportunity for all.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Participations Section -->
+    <section class="participations-section">
+        <div class="container">
+            <div class="section-title">
+                <h2><i class="fas fa-certificate medical-symbol"></i>My Participations</h2>
+            </div>
+            <div class="participation-cards">
+                <!-- First Participation -->
+                <div class="participation-card">
+                    <div class="participation-slider" id="slider1">
+                        <div class="slider-container">
+                            <div class="slide"><div class="slide-placeholder" style="background-color: #d1e9ff; width: 100%; height: 100%; display: flex; align-items: center; justify-content: center;"><img src="./Images/1.jpg" alt=""></div></div>
+                            <div class="slide"><div class="slide-placeholder" style="background-color: #d1e9ff; width: 100%; height: 100%; display: flex; align-items: center; justify-content: center;"><img src="./Images/1(2).jpg" alt=""></div></div>
+                            <div class="slide"><div class="slide-placeholder" style="background-color: #d1e9ff; width: 100%; height: 100%; display: flex; align-items: center; justify-content: center;"><img src="./Images/1(3).jpg" alt=""></div></div>
+                            <div class="slide"><div class="slide-placeholder" style="background-color: #d1e9ff; width: 100%; height: 100%; display: flex; align-items: center; justify-content: center;"><img src="./Images/1(4).jpg" alt=""></div></div>
+                            <div class="slide"><div class="slide-placeholder" style="background-color: #d1e9ff; width: 100%; height: 100%; display: flex; align-items: center; justify-content: center;"><img src="./Images/1(5).jpg" alt=""></div></div>
+                        </div>
+                        <div class="slider-controls"></div>
+                        <div class="slider-arrow prev"><i class="fas fa-chevron-left"></i></div>
+                        <div class="slider-arrow next"><i class="fas fa-chevron-right"></i></div>
+                    </div>
+                    <div class="participation-content">
+                        <div class="participation-date">
+                            <i class="far fa-calendar-alt"></i>
+                            <span>November 14, 2023</span>
+                        </div>
+                        <h3>World Diabetes Day Health Festival</h3>
+                        <p>As a local public health officer (LPO) of the IFMSA-Kurdistan, I managed a health festival for the world diabetes day, in this day we provided up to 450 free medical testes (RBS, BP, Visual acuity, measurement of BM and general health advices), in the campus of Koya University and we collected the data from the campaign to do a research on the vital signs and lifestyle of students and people in Koya city.</p>
+                    </div>
+                </div>
+
+                <!-- Second Participation -->
+                <div class="participation-card">
+                    <div class="participation-slider" id="slider2">
+                        <div class="slider-container">
+                            <div class="slide"><div class="slide-placeholder" style="background-color: #d1e9ff; width: 100%; height: 100%; display: flex; align-items: center; justify-content: center;"><img src="./Images/2.jpg" alt=""></div></div>
+                            <div class="slide"><div class="slide-placeholder" style="background-color: #d1e9ff; width: 100%; height: 100%; display: flex; align-items: center; justify-content: center;"><img src="./Images/2(1).jpg" alt=""></div></div>
+                            <div class="slide"><div class="slide-placeholder" style="background-color: #d1e9ff; width: 100%; height: 100%; display: flex; align-items: center; justify-content: center;"><img src="./Images/2(2).jpg" alt=""></div></div>
+                            <div class="slide"><div class="slide-placeholder" style="background-color: #d1e9ff; width: 100%; height: 100%; display: flex; align-items: center; justify-content: center;"><img src="./Images/2(3).jpg" alt=""></div></div>
+                            <div class="slide"><div class="slide-placeholder" style="background-color: #d1e9ff; width: 100%; height: 100%; display: flex; align-items: center; justify-content: center;"><img src="./Images/2(4).jpg" alt=""></div></div>
+                        </div>
+                        <div class="slider-controls"></div>
+                        <div class="slider-arrow prev"><i class="fas fa-chevron-left"></i></div>
+                        <div class="slider-arrow next"><i class="fas fa-chevron-right"></i></div>
+                    </div>
+                    <div class="participation-content">
+                        <div class="participation-date">
+                            <i class="far fa-calendar-alt"></i>
+                            <span>October 18, 2023</span>
+                        </div>
+                        <h3>Mental Health Awareness Project</h3>
+                        <p>As LPO of IFMSA-Kurdistan, we did a project on mental health, as we know a man is a what he thinks about therefore mental health should be a priority for building better generation and society, we did a number of different activities including a seminar on mental health and some other activities like story telling and social interaction.</p>
+                    </div>
+                </div>
+
+                <!-- Third Participation -->
+                <div class="participation-card">
+                    <div class="participation-slider" id="slider3">
+                        <div class="slider-container">
+                            <div class="slide"><div class="slide-placeholder" style="background-color: #d1e9ff; width: 100%; height: 100%; display: flex; align-items: center; justify-content: center;"><img src="./Images/3.jpg" alt=""></div></div>
+                            <div class="slide"><div class="slide-placeholder" style="background-color: #d1e9ff; width: 100%; height: 100%; display: flex; align-items: center; justify-content: center;"><img src="./Images/3(1).jpg" alt=""></div></div>
+                            <div class="slide"><div class="slide-placeholder" style="background-color: #d1e9ff; width: 100%; height: 100%; display: flex; align-items: center; justify-content: center;"><img src="./Images/3(2).jpg" alt=""></div></div>
+                            <div class="slide"><div class="slide-placeholder" style="background-color: #d1e9ff; width: 100%; height: 100%; display: flex; align-items: center; justify-content: center;"><img src="./Images/3(3).jpg" alt=""></div></div>
+                        </div>
+                        <div class="slider-controls"></div>
+                        <div class="slider-arrow prev"><i class="fas fa-chevron-left"></i></div>
+                        <div class="slider-arrow next"><i class="fas fa-chevron-right"></i></div>
+                    </div>
+                    <div class="participation-content">
+                        <div class="participation-date">
+                            <i class="far fa-calendar-alt"></i>
+                            <span>October 4, 2023</span>
+                        </div>
+                        <h3>Selected as Local Public Health Officer</h3>
+                        <p>We proudly selected as a new Local Public Health Officer (LPO) for the term 2023 IFMSA-Kurdistan-Koya. Our dedication and commitment towards better public health made the members put trust in us and achieve great success hand in hand.</p>
+                    </div>
+                </div>
+
+                <!-- Fourth Participation -->
+                <div class="participation-card">
+                    <div class="participation-slider" id="slider4">
+                        <div class="slider-container">
+                            <div class="slide"><div class="slide-placeholder" style="background-color: #d1e9ff; width: 100%; height: 100%; display: flex; align-items: center; justify-content: center;"><img src="./Images/4.jpg" alt=""></div></div>
+                            <div class="slide"><div class="slide-placeholder" style="background-color: #d1e9ff; width: 100%; height: 100%; display: flex; align-items: center; justify-content: center;"><img src="./Images/4(1).jpg" alt=""></div></div>
+                            <div class="slide"><div class="slide-placeholder" style="background-color: #d1e9ff; width: 100%; height: 100%; display: flex; align-items: center; justify-content: center;"><img src="./Images/4(2).jpg" alt=""></div></div>
+                        </div>
+                        <div class="slider-controls"></div>
+                        <div class="slider-arrow prev"><i class="fas fa-chevron-left"></i></div>
+                        <div class="slider-arrow next"><i class="fas fa-chevron-right"></i></div>
+                    </div>
+                    <div class="participation-content">
+                        <div class="participation-date">
+                            <i class="far fa-calendar-alt"></i>
+                            <span>August 25-27, 2023</span>
+                        </div>
+                        <h3>National Assembly of IFMSA-Kurdistan</h3>
+                        <p>During August 25-27, 2023, we participated in the national assembly of IFMSA-Kurdistan in Duhok. This important event inspired me to think globally and act locally. We were delighted to see projects and activities of other local boards of the organization.</p>
+                    </div>
+                </div>
+
+                <!-- Fifth Participation -->
+                <div class="participation-card">
+                    <div class="participation-slider" id="slider5">
+                        <div class="slider-container">
+                            <div class="slide"><div class="slide-placeholder" style="background-color: #d1e9ff; width: 100%; height: 100%; display: flex; align-items: center; justify-content: center;"><img src="./Images/5.jpg" alt=""></div></div>
+                            <div class="slide"><div class="slide-placeholder" style="background-color: #d1e9ff; width: 100%; height: 100%; display: flex; align-items: center; justify-content: center;"><img src="./Images/5(1).jpg" alt=""></div></div>
+                            <div class="slide"><div class="slide-placeholder" style="background-color: #d1e9ff; width: 100%; height: 100%; display: flex; align-items: center; justify-content: center;"><img src="./Images/5(2).jpg" alt=""></div></div>
+                            <div class="slide"><div class="slide-placeholder" style="background-color: #d1e9ff; width: 100%; height: 100%; display: flex; align-items: center; justify-content: center;"><img src="./Images/5(3).jpg" alt=""></div></div>
+                        </div>
+                        <div class="slider-controls"></div>
+                        <div class="slider-arrow prev"><i class="fas fa-chevron-left"></i></div>
+                        <div class="slider-arrow next"><i class="fas fa-chevron-right"></i></div>
+                    </div>
+                    <div class="participation-content">
+                        <div class="participation-date">
+                            <i class="far fa-calendar-alt"></i>
+                            <span>2023</span>
+                        </div>
+                        <h3>Conference of 2025 Vision of Hasar</h3>
+                        <p>As a volunteer in Hasar organization, I actively participated in the conference of 2025 vision of Hasar. We talked about our ideas and strategies to improve the quality of the project and suggested an eco-friendly business for the organization to be able to run its projects efficiently.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-social">
+                    <a target="_blank"  href="https://www.linkedin.com/in/aras-hussein-b8002a287?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app"><i class="fab fa-linkedin"></i></a>
+                    <a target="_blank" href="https://www.facebook.com/share/18vDNRhC4i/?mibextid=wwXIfr"><i class="fab fa-facebook"></i></a>
+                    <a target="_blank" href="https://x.com/amustafa39245?s=21&t=qXkHrp-aO3nlLsW-5wM-Zw"><i class="fab fa-twitter"></i></a>
+                    <a target="_blank" href="https://www.instagram.com/aras_mustafaa?igsh=MXc0Ynk1NjZvbGp2bg%3D%3D&utm_source=qr"><i class="fab fa-instagram"></i></a>
+                    <a target="_blank" href="mailto:arasmstafa2000@gmail.com"><i class="fas fa-envelope"></i></a>
+                </div>
+                <p>Feel free to reach out for collaborations or just a friendly chat.</p>
+                <p class="copyright">&copy; 2025 Aras Mustafa. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initialize all sliders
+            const sliders = document.querySelectorAll('.participation-slider');
+            
+            sliders.forEach(slider => {
+                initializeSlider(slider);
+            });
+
+            function initializeSlider(slider) {
+                const container = slider.querySelector('.slider-container');
+                const slides = slider.querySelectorAll('.slide');
+                const controlsContainer = slider.querySelector('.slider-controls');
+                const prevArrow = slider.querySelector('.slider-arrow.prev');
+                const nextArrow = slider.querySelector('.slider-arrow.next');
+                let currentIndex = 0;
+                
+                // Create dots for each slide
+                slides.forEach((_, index) => {
+                    const dot = document.createElement('div');
+                    dot.classList.add('slider-dot');
+                    if (index === 0) dot.classList.add('active');
+                    dot.addEventListener('click', () => goToSlide(index));
+                    controlsContainer.appendChild(dot);
+                });
+                
+                // Set up event listeners for arrows
+                prevArrow.addEventListener('click', () => {
+                    currentIndex = (currentIndex - 1 + slides.length) % slides.length;
+                    updateSlider();
+                });
+                
+                nextArrow.addEventListener('click', () => {
+                    currentIndex = (currentIndex + 1) % slides.length;
+                    updateSlider();
+                });
+                
+                // Function to go to a specific slide
+                function goToSlide(index) {
+                    currentIndex = index;
+                    updateSlider();
+                }
+                
+                // Update the slider position and active dot
+                function updateSlider() {
+                    container.style.transform = `translateX(-${currentIndex * 100}%)`;
+                    
+                    // Update active dot
+                    const dots = controlsContainer.querySelectorAll('.slider-dot');
+                    dots.forEach((dot, index) => {
+                        if (index === currentIndex) {
+                            dot.classList.add('active');
+                        } else {
+                            dot.classList.remove('active');
+                        }
+                    });
+                }
+                
+                // Auto slide functionality
+                let interval = setInterval(() => {
+                    currentIndex = (currentIndex + 1) % slides.length;
+                    updateSlider();
+                }, 5000);
+                
+                // Pause auto slide on hover
+                slider.addEventListener('mouseenter', () => {
+                    clearInterval(interval);
+                });
+                
+                slider.addEventListener('mouseleave', () => {
+                    interval = setInterval(() => {
+                        currentIndex = (currentIndex + 1) % slides.length;
+                        updateSlider();
+                    }, 5000);
+                });
+                
+                // Initialize the slider
+                updateSlider();
+            }
+        });
+    </script>
+</body>
+</html>
